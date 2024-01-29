@@ -1,0 +1,30 @@
+
+## Q/A  ##   
+
+
+
+1. **What is Redux?**
+   Redux is a state management library for JavaScript applications, particularly those built using React. It helps manage the state of an application in a predictable way. The core concept of Redux is to have a single source of truth (the "store") for the state of the entire application, and changes to the state are made through dispatching actions. Reducers handle these actions and update the state accordingly. Redux can be especially useful in large or complex applications where managing state can become challenging.
+
+2. **What is Redux Thunk used for?**
+   Redux Thunk is a middleware for Redux that allows you to write action creators that return functions instead of plain action objects. This is particularly useful for handling asynchronous logic in Redux. With Redux Thunk, you can dispatch a function, and this function can perform asynchronous operations (such as API calls) before dispatching the actual action. It provides a way to delay the dispatch of an action, enabling you to handle async operations more easily in your Redux applications.
+
+3. **What is Pure Component? When to use Pure Component over Component?**
+   In React, a `PureComponent` is a class component that extends `React.PureComponent` instead of `React.Component`. The main difference is that a `PureComponent` implements a `shouldComponentUpdate` method with a shallow prop and state comparison. If the props and state have not changed, `shouldComponentUpdate` returns `false`, preventing unnecessary re-rendering.
+
+   Use `PureComponent` when you want to optimize performance by avoiding unnecessary renders. If the component's render output is determined solely by its props and state, and they are all immutable, using `PureComponent` can help improve performance by skipping renders when the data hasn't changed.
+
+4. **What is the second argument that can optionally be passed to `setState`, and what is its purpose?**
+   The second argument that can be passed to the `setState` function in React is a callback function that will be executed once the state is updated and the component has been re-rendered. This callback is often used for performing actions after the state has been updated.
+
+   ```jsx
+   this.setState(
+     { newState },
+     () => {
+       // Callback function, executed after the state is updated and component is re-rendered
+       console.log('State has been updated');
+     }
+   );
+   ```
+
+   It's important to note that due to the asynchronous nature of `setState`, if you need to perform some action immediately after the state has been updated, using the callback is the recommended approach.
